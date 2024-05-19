@@ -58,8 +58,8 @@ export default function ProductList({
             </h2>
             ))}
         <p className="mt-4">
-            Selected Tag: {selectedTags.map(tag =>(
-                <span>-{tag}</span>
+            Selected Tag: {selectedTags.map((tag, index) =>(
+                <span key={index}>-{tag}</span>
             ))}
         </p>
         <p onClick={() => reset()}>Reset Filter</p>
