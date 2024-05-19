@@ -1,0 +1,33 @@
+{
+  "id": "gallery_index",
+  "type": "SharedSlice",
+  "name": "GalleryIndex",
+  "description": "GalleryIndex",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "filters": {
+          "type": "Select",
+          "config": {
+            "label": "filters",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
