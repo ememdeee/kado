@@ -7,27 +7,23 @@ type TextHoverableProps = {
 //   linkField: LinkField;
   label: KeyTextField;
   className?: string;
+  active?: boolean;
 };
 
 export default function TextHoverable({
 //   linkField,
   label,
   className,
+  active,
 }: TextHoverableProps) {
   return (
-    <span
-    //   field={linkField}
-      className={clsx(
-        // "group text-slate-800 relative flex w-fit items-center justify-center overflow-hidden rounded-md border-2 border-slate-900 bg-slate-50  px-4 py-2 font-bold transition-transform ease-out  hover:scale-105",
-        "group relative block overflow-hidden px-3 py-1 text-base font-bold text-slate-900 rounded-md border-2 border-slate-900",
-        className,
-      )}
-    >
-      <span
-        className={clsx(
-          "absolute inset-0 z-0 h-full translate-y-9 bg-yellow-300 transition-transform  duration-300 ease-in-out group-hover:translate-y-0",
-        )}
-      />
+    <span className={clsx("group relative block overflow-hidden px-3 py-1 text-base font-bold text-slate-900 rounded-md border-2 border-slate-900", className,)}>
+      <span className={clsx("absolute inset-0 z-0 h-full bg-yellow-300 transition-transform duration-300 ease-in-out md:group-hover:translate-y-0",
+        {
+          "translate-y-9": !active,
+          "translate-y-7": active,
+        }
+      )}/>
       <span className="relative flex items-center justify-center gap-2">
         {label}
       </span>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
 import Header from "@/component/Header";
 
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={urbanist.className}>
+      <body className={clsx(urbanist.className, "relative min-h-screen")}>
         <Header/>
         {children}
       </body>

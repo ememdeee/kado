@@ -39,7 +39,7 @@ export default function ProductList({ products }: ProductListProps) {
       <p className="mt-3 mb-3">List of tag available:</p>
       {uniqueTags.map(tag => (
         <span key={tag} onClick={() => handleTagClick(tag)} className="inline-block">
-          <TextHoverable label={tag} className="ml-1" />
+          <TextHoverable label={tag} className="ml-1" active={selectedTags.includes(tag)} />
         </span>
       ))}
 
