@@ -48,9 +48,9 @@ export default function ProductList({ products }: ProductListProps) {
         {products
           .filter(product => selectedTags.every(tag => product.tags.includes(tag)))
           .map(product => (
-            <Link href={product.uid} passHref>
+            <Link href={product.uid} passHref key={product.id}>
               <ImageContainer image={product.data.mainimage} width={350} />
-              <Heading as="h2" size="ss" className="mt-2" key={product.id}>
+              <Heading as="h2" size="ss" className="mt-2">
                 {product.data.title}
               </Heading>
                 {product.tags.map(tag => (
