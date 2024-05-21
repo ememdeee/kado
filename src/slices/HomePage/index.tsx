@@ -1,5 +1,5 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import Link from "next/link";
 import ProductList from "./ProductList";
@@ -26,10 +26,11 @@ const Hero = async ({ slice }: HeroProps): Promise <JSX.Element> => {
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
       >
-        <Heading>
+        <Heading className="mb-4">
           {slice.primary.heading}
         </Heading>
-        <ProductList products={products}/>
+        <PrismicRichText field={slice.primary.description}/>
+        <ProductList products={products} className="mt-4"/>
       </Bounded>
       </>
   );

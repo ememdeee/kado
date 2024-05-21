@@ -7,6 +7,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "adult",
 				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur proident ad irure cupidatat fugiat aute labore id."
+						}
+					}
+				]
 			}
 		},
 		"items": []

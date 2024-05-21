@@ -51,6 +51,46 @@
           "placeholder": "",
           "select": null
         }
+      },
+      "instagram": {
+        "type": "Link",
+        "config": {
+          "label": "Instagram",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "twitterx": {
+        "type": "Link",
+        "config": {
+          "label": "TwitterX",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "youtube": {
+        "type": "Link",
+        "config": {
+          "label": "Youtube",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "linkedin": {
+        "type": "Link",
+        "config": {
+          "label": "Linkedin",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "github": {
+        "type": "Link",
+        "config": {
+          "label": "GitHub",
+          "placeholder": "",
+          "select": null
+        }
       }
     },
     "Seo Data - Fallback": {
