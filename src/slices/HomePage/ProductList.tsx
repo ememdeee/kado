@@ -6,6 +6,8 @@ import { Content } from "@prismicio/client";
 import "@/app/globals.css";
 import Link from "next/link";
 import TextHoverable from "@/component/TextHoverable";
+import ImageContainer from "@/component/ImageContainer";
+import Heading from "@/component/Heading";
 
 type ProductListProps = {
   products: Content.ProductDocument[];
@@ -42,19 +44,21 @@ export default function ProductList({ products }: ProductListProps) {
           <TextHoverable label={tag} className="ml-1" active={selectedTags.includes(tag)} />
         </span>
       ))}
-
-      {products
-        .filter(product => selectedTags.every(tag => product.tags.includes(tag)))
-        .map(product => (
-          <h2 key={product.id}>
+      <div className="flex gap-2 mt-3">
+        {products
+          .filter(product => selectedTags.every(tag => product.tags.includes(tag)))
+          .map(product => (
             <Link href={product.uid} passHref>
-              {product.data.title} - 
-              {product.tags.map(tag => (
-                <span key={tag}> {tag} </span>
-              ))}
+              <ImageContainer image={product.data.mainimage} width={350} />
+              <Heading as="h2" size="ss" className="mt-2" key={product.id}>
+                {product.data.title}
+              </Heading>
+                {product.tags.map(tag => (
+                  <span key={tag}> {tag} </span>
+                ))}
             </Link>
-          </h2>
-        ))}
+          ))}
+      </div>
       <p className="mt-4">
         Selected Tag: {selectedTags.map(tag => (
           <span key={tag}>-{tag}</span>

@@ -4,6 +4,8 @@ import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import Bounded from "@/component/Bounded";
+import Heading from "@/component/Heading";
 
 type Params = { uid: string };
 
@@ -14,17 +16,17 @@ export default async function Page({ params }: { params: Params }) {
     .catch(() => notFound());
 
   return (
-    <>
-    <h1>{page.data.title}</h1>
-    <p>Tags: 
-      {page.tags.map((tag, index) => (
-      <span key={index}> {tag} </span>
-    ))}
-    </p>
-    <p>Published Date: {page.data.date}</p>
+    <Bounded>
+      <Heading>{page.data.title}</Heading>
+      <p>Tags: 
+        {page.tags.map((tag, index) => (
+        <span key={index}> {tag} </span>
+      ))}
+      </p>
+      <p>Published Date: {page.data.date}</p>
 
-    <SliceZone slices={page.data.slices} components={components} />
-    </>
+      <SliceZone slices={page.data.slices} components={components} />
+    </Bounded>
   );
 }
 

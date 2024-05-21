@@ -1,7 +1,11 @@
-import { PrismicNextImage } from '@prismicio/next';
+import { PrismicNextImage, PrismicNextImageProps } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
-import Link from 'next/link';
 import React from 'react';
+import Heading from './Heading';
+import Bounded from './Bounded';
+import Button from './Button';
+import ImageContainer from './ImageContainer';
+
 
 type ImageField = {
     image: any; // Replace 'any' with the appropriate type for the image field
@@ -12,9 +16,8 @@ type DocumentData = {
     mainimage: any; // Replace 'any' with the appropriate type for the main image
     images: ImageField[];
     description: any; // Replace 'any' with the appropriate type for the description
-    link: {
-        url: string;
-    };
+    detail: any; // Replace 'any' with the appropriate type for the description
+    link: any;
     date: any;
 };
   
@@ -27,25 +30,26 @@ type ProductProps = {
 
 const Product: React.FC<ProductProps> = ({ document }) => {
   return (
-    <div>
-        <h1>{document.data.title}</h1>
+    <Bounded>
+        <Heading>{document.data.title}</Heading>
+        <ImageContainer image={document.data.mainimage} width={500} />
         <span>{document.data.date}</span>
         <ul>
             {document.tags.map((tag, index) => (
             <li key={index}>{tag}</li>
             ))}
         </ul>
-        <PrismicNextImage field={document.data.mainimage}/>
-        <ul>
+        <div className='flex gap-2'>
             {document.data.images.map((images, index) => (
-            <li key={index}>
-                <PrismicNextImage field={images.image} />
-            </li>
+            <span key={index} className=''>
+                <ImageContainer image={images.image} width={400} />
+            </span>
             ))}
-        </ul>
+        </div>
         <PrismicRichText field={document.data.description} />
-        <Link href={document.data.link.url}>Check Out Now!</Link>
-    </div>
+        <Button linkField={document.data.link} label="Check Out Now!" />
+        <PrismicRichText field={document.data.detail} />
+    </Bounded>
   );
 };
 
