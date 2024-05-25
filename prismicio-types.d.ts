@@ -171,6 +171,17 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
    * Meta Description field in *Page*
    *
    * - **Field Type**: Text
@@ -178,7 +189,7 @@ interface PageDocumentData {
    * - **API ID Path**: page.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -191,17 +202,6 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: page.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
 }
 
 /**
@@ -667,22 +667,32 @@ export type ContentIndexSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *GalleryIndex → Default → Primary*
+ * Primary content in *Search → Default → Primary*
  */
 export interface GalleryIndexSliceDefaultPrimary {
   /**
-   * filters field in *GalleryIndex → Default → Primary*
+   * Heading field in *Search → Default → Primary*
    *
-   * - **Field Type**: Select
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: gallery_index.default.primary.filters
-   * - **Documentation**: https://prismic.io/docs/field#select
+   * - **API ID Path**: gallery_index.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  filters: prismic.SelectField<"1" | "2" | "3" | "4" | "5">;
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *Search → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_index.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
 }
 
 /**
- * Default variation for GalleryIndex Slice
+ * Default variation for Search Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -695,12 +705,12 @@ export type GalleryIndexSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *GalleryIndex*
+ * Slice variation for *Search*
  */
 type GalleryIndexSliceVariation = GalleryIndexSliceDefault;
 
 /**
- * GalleryIndex Shared Slice
+ * Search Shared Slice
  *
  * - **API ID**: `gallery_index`
  * - **Description**: GalleryIndex

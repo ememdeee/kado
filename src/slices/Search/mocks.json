@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "typical",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat et non velit quis velit dolor deserunt anim sunt laboris occaecat. Tempor fugiat ut duis proident fugiat tempor et Lorem qui sunt irure. Reprehenderit velit nisi velit est amet et adipisicing cupidatat sit."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

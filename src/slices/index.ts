@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   contact_us: dynamic(() => import("./ContactUs")),
   content_index: dynamic(() => import("./Blog")),
-  gallery_index: dynamic(() => import("./GalleryIndex")),
+  gallery_index: dynamic(() => import("./Search")),
   hero: dynamic(() => import("./HomePage")),
   image_block: dynamic(() => import("./ImageBlock")),
   text_block: dynamic(() => import("./TextBlock")),
