@@ -6,7 +6,6 @@ import { Content } from "@prismicio/client";
 import "@/app/globals.css";
 import Link from "next/link";
 import TextHoverable from "@/component/TextHoverable";
-import ImageContainer from "@/component/ImageContainer";
 import Heading from "@/component/Heading";
 import { PrismicImage } from "@prismicio/react";
 
@@ -39,7 +38,7 @@ export default function ProductList({ products, className }: ProductListProps) {
   };
 
   return (
-    <div className={clsx("border border-gray-100 rounded-lg p-3 shadow-sm", className)}>
+    <div className={clsx("", className)}>
       <p className="mt-3 mb-3 text-center">List of tag available:</p>
       <div className="flex flex-wrap gap-2 mt-3 justify-center">
       {uniqueTags.map(tag => (

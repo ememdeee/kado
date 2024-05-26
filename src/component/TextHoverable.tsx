@@ -1,13 +1,14 @@
 // import { PrismicNextLink } from "@prismicio/next";
-import React from "react";
+import React, { ReactNode } from "react";
 import clsx from "clsx";
 import { KeyTextField, LinkField } from "@prismicio/client";
 
 type TextHoverableProps = {
 //   linkField: LinkField;
-  label: KeyTextField;
+  label?: KeyTextField;
   className?: string;
   active?: boolean;
+  children?: ReactNode;
 };
 
 export default function TextHoverable({
@@ -15,6 +16,7 @@ export default function TextHoverable({
   label,
   className,
   active,
+  children,
 }: TextHoverableProps) {
   return (
     <span className={clsx("group relative block overflow-hidden px-3 py-1 text-base font-bold text-slate-900 rounded-md border-2 border-slate-900", className,)}>
@@ -26,6 +28,7 @@ export default function TextHoverable({
       )}/>
       <span className="relative flex items-center justify-center gap-2">
         {label}
+        {children}
       </span>
     </span>
   );

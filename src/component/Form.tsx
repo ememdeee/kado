@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import clsx from "clsx";
 import { useRouter } from 'next/navigation';
+import TextHoverable from './TextHoverable';
 
 type FormProps = {
   className?: string;
@@ -38,11 +39,11 @@ const Form: React.FC<FormProps> = ({ className }) => {
     <div className="flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className={clsx("bg-white p-6 rounded-lg shadow-lg w-full max-w-screen-lg space-y-4", className)}
+        className={clsx("w-full space-y-4", className)}
         >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="kelamin" className="block text-md font-medium text-gray-700">
+            <label htmlFor="kelamin" className="hidden text-md font-medium text-gray-700">
               Kelamin
             </label>
             <select
@@ -50,7 +51,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
               name="kelamin"
               value={formData.kelamin}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-md h-12 py-2"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
             >
               <option value="">Pilih Kelamin</option>
               <option value="Laki-laki">Laki-laki</option>
@@ -59,7 +60,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
           </div>
 
           <div>
-            <label htmlFor="umur" className="block text-md font-medium text-gray-700">
+            <label htmlFor="umur" className="hidden text-md font-medium text-gray-700">
               Umur
             </label>
             <select
@@ -67,9 +68,10 @@ const Form: React.FC<FormProps> = ({ className }) => {
               name="umur"
               value={formData.umur}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-md h-12 py-2"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
             >
               <option value="">Pilih Umur</option>
+              <option value="komputer">komputer</option>
               <option value="18-25">18-25</option>
               <option value="26-35">26-35</option>
               <option value="36-45">36-45</option>
@@ -80,7 +82,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
           </div>
 
           <div>
-            <label htmlFor="budget" className="block text-md font-medium text-gray-700">
+            <label htmlFor="budget" className="hidden text-md font-medium text-gray-700">
               Budget
             </label>
             <select
@@ -88,9 +90,10 @@ const Form: React.FC<FormProps> = ({ className }) => {
               name="budget"
               value={formData.budget}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-md h-12 py-2"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
             >
               <option value="">Pilih Budget</option>
+              <option value="buah">buah</option>
               <option value="0-1j">0-1j</option>
               <option value="1jt-2j">1jt-2j</option>
               <option value="3jt-4j">3jt-4j</option>
@@ -98,7 +101,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
           </div>
 
           <div>
-            <label htmlFor="profesi" className="block text-md font-medium text-gray-700">
+            <label htmlFor="profesi" className="hidden text-md font-medium text-gray-700">
               Profesi
             </label>
             <select
@@ -106,9 +109,10 @@ const Form: React.FC<FormProps> = ({ className }) => {
               name="profesi"
               value={formData.profesi}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-md h-12 py-2"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
             >
               <option value="">Pilih Profesi</option>
+              <option value="makanan">makanan</option>
               <option value="Mahasiswa">Mahasiswa</option>
               <option value="Pekerja">Pekerja</option>
               <option value="Pengusaha">Pengusaha</option>
@@ -118,12 +122,12 @@ const Form: React.FC<FormProps> = ({ className }) => {
         </div>
 
         <div className="mt-4">
-          <button
-            type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Submit
-          </button>
+            <button
+              type="submit"
+              className="w-full"
+            >
+              <TextHoverable label="Submit" className='w-full'/>
+            </button>
         </div>
       </form>
     </div>

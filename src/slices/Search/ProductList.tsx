@@ -6,9 +6,9 @@ import { Content } from "@prismicio/client";
 import "@/app/globals.css";
 import Link from "next/link";
 import TextHoverable from "@/component/TextHoverable";
-import ImageContainer from "@/component/ImageContainer";
 import Heading from "@/component/Heading";
-import { PrismicImage } from "@prismicio/react";
+import { PrismicImage, PrismicRichText } from "@prismicio/react";
+import Button from "@/component/Button";
 
 type ProductListProps = {
   products: Content.ProductDocument[];
@@ -16,56 +16,22 @@ type ProductListProps = {
 };
 
 export default function ProductList({ products, className }: ProductListProps) {
-  // Extract and deduplicate tags
-  const allTags = products.flatMap(product => product.tags);
-  const uniqueTags = Array.from(new Set(allTags));
-
-  // const selectedTag: string[] = [];
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const handleTagClick = (tag: string) => {
-    setSelectedTags(prevSelectedTags => {
-      if (prevSelectedTags.includes(tag)) {
-        // Remove tag if it's already selected
-        return prevSelectedTags.filter(t => t !== tag);
-      } else {
-        // Add tag if it's not selected
-        return [...prevSelectedTags, tag];
-      }
-    });
-  };
-
-  const reset = () => {
-    setSelectedTags([]);
-  };
 
   return (
     <div className={clsx("", className)}>
-      <p className="mt-3 mb-3 text-center">List of tag available:</p>
-      <div className="flex flex-wrap gap-2 mt-3 justify-center">
-      {uniqueTags.map(tag => (
-        <span key={tag} onClick={() => handleTagClick(tag)} className="inline-block">
-          <TextHoverable label={tag} className="ml-1 cursor-pointer" active={selectedTags.includes(tag)} />
-        </span>
-      ))}
-      </div>
-      <p onClick={reset} className="cursor-pointer text-yellow-500 font-bold hover:underline mt-4 mb-4 text-center">Reset Filter</p>
-      <div className="flex flex-wrap gap-2 mt-3 mb-4 justify-center">
-        {products
-          .filter(product => selectedTags.every(tag => product.tags.includes(tag)))
-          .map(product => (
-            <Link href={product.uid} passHref key={product.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
-              <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md">
-                <PrismicImage field={product.data.mainimage} />
-                {/* <ImageContainer image={product.data.mainimage} width={350} /> */}
-                <div className="p-3">
+      <div className="w-fit mx-auto grid gap-y-20 gap-x-14 mt-10 mb-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        {products.map(product => (
+            <Link href={product.uid} passHref key={product.id} className="max-w-72 w-full">
+              <div className="bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                <PrismicImage field={product.data.mainimage} className="h-80 object-cover rounded-t-xl" />
+                <div className="px-4 py-3">
                   <Heading as="h2" size="ss" className="mb-2">
                     {product.data.title}
                   </Heading>
-                  <div className="flex flex-wrap gap-1">
-                    {product.tags.map(tag => (
-                      <span key={tag} className="px-2 py-1 bg-gray-200 rounded-full text-xs">{tag}</span>
-                    ))}
+                  <div className="max-h-5 overflow-hidden">
+                    <PrismicRichText field={product.data.description} />
                   </div>
+                  <TextHoverable label="Details" className="mt-5" />
                 </div>
               </div>
             </Link>

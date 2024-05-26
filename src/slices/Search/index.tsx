@@ -9,43 +9,32 @@ import Heading from "@/component/Heading";
  * Props for `GalleryIndex`.
  */
 export type GalleryIndexProps = SliceComponentProps<Content.GalleryIndexSlice> & {
-  tags: string[];
+  context: {
+    tags: string[];
+  };
 };
 
 /**
  * Component for "GalleryIndex" Slices.
  */
-const GalleryIndex = async ({ slice, tags }: GalleryIndexProps): Promise<JSX.Element> => {
-  const client = createClient();
-  const products = await client.getAllByType('product');
-  // const products = await client.getAllByEveryTag(tags);
+const GalleryIndex = async ({ slice, context }: GalleryIndexProps): Promise <JSX.Element> => {
+  const tags = context.tags; //ini dari querrystring yg di kriim dari index
+  const client = createClient()
+  const documents = await client.getAllByEveryTag(tags) //or getAllByType('product') to get all
+  const products = documents.filter(doc => doc.type === "product");
 
   return (
-    <Bounded
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}>
-      <Heading>{slice.primary.heading}</Heading>
-      <PrismicRichText field={slice.primary.description} />
-      <ProductList products={products} className="mt-4" />
-      <p>Query String List:</p>
-      <p>{tags}</p>
-    </Bounded>
+    <>
+      <Bounded
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}>
+          <Heading>{slice.primary.heading}</Heading>
+          <PrismicRichText field={slice.primary.description} />
+          <ProductList products={products as Content.ProductDocument[]} className="mt-4" />
+          {/* <p>Query String List {tags.join(", ")}</p> */}
+      </Bounded>
+    </>
   );
 };
 
 export default GalleryIndex;
-
-export const getServerSideProps = async (context: any) => {
-  const { q } = context.query;
-  const tags = typeof q === 'string' ? q.split("+") : [];
-
-  // Debugging output
-  console.log('Query parameter:', q);
-  console.log('Tags array:', tags);
-
-  return {
-    props: {
-      tags
-    }
-  };
-};
