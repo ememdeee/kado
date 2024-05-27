@@ -40,7 +40,7 @@ export default async function Page({ params, searchParams }: { params: Params, s
     
     const { type, document } = result;
     
-    console.log(searchParams);
+
     if (searchParams){
       console.log(searchParams.q);
     }
