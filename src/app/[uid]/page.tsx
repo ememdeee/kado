@@ -24,17 +24,17 @@ async function fetchDocument(uid: string, client: any) {
 export default async function Page({ params, searchParams }: { params: Params, searchParams?: { [key: string]: string | string[] | undefined };}) {
   const client = createClient();
   const result = await fetchDocument(params.uid, client);
-  let query: string[] = ["makanan"];
+  let query: string[] = [];
 
   console.log(searchParams);
-  // if (Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
-  //   const qParam = searchParams.q;
-  //   if (typeof qParam === 'string') {
-  //     // console.log("Query String", searchParams);
-  //     query = qParam.split(' ');
-  //     // console.log("Query: ", query);
-  //   }
-  // };
+  if (Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
+    const qParam = searchParams.q;
+    if (typeof qParam === 'string') {
+      // console.log("Query String", searchParams);
+      query = qParam.split(' ');
+      console.log("Query: ", query);
+    }
+  };
 
   if (!result) {
     notFound();
