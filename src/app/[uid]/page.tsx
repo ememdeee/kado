@@ -33,11 +33,11 @@ export default async function Page({ params, searchParams }: { params: Params, s
       query = qParam.split(' ');
       // console.log("Query: ", query);
     }
-  }
+  };
 
   if (!result) {
     notFound();
-  }
+  };
 
   const { type, document } = result;
 

@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import Heading from './Heading';
 import Bounded from './Bounded';
 import Button from './Button';
-import ImageContainer from './ImageContainer';
-import { LinkField } from '@prismicio/client';
+// import ImageContainer from './ImageContainer';
+// import { LinkField } from '@prismicio/client';
 
 
 type ImageField = {
@@ -34,9 +34,7 @@ type ProductProps = {
 
 const Product: React.FC<ProductProps> = ({ document }) => {
 const [activeImg, setActiveImage] = useState(document.data.mainimage)
-console.log("shopee link", document.data.link_shopee)
-console.log("tokped link", document.data.link_tokopedia)
-console.log("detail", document.data.detail)
+
   return (
     <Bounded>
         <div className='flex flex-col justify-between lg:flex-row gap-10 lg:items-center mb-4 md:gap-16'>
