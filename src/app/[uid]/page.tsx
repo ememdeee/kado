@@ -24,7 +24,7 @@ async function fetchDocument(uid: string, client: any) {
 export default async function Page({ params, searchParams }: { params: Params, searchParams?: { [key: string]: string | string[] | undefined };}) {
   const client = createClient();
   const result = await fetchDocument(params.uid, client);
-  let query: string[] = [];
+  let query: string[] = ["makanan"];
 
   console.log(searchParams);
   if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
