@@ -21,19 +21,19 @@ async function fetchDocument(uid: string, client: any) {
   }
 }
 // export default async function Page({ params }: { params: Params }) {
-export default async function Page({ params, searchParams }: { params: Params, searchParams?: { q: string };}) {
+export default async function Page({ params, Param }: { params: Params, Param?: { q: string };}) {
   const client = createClient();
   const result = await fetchDocument(params.uid, client);
   let query: string[] = [];
 
-  console.log("search param bismillah:", searchParams)
+  console.log("search param bismillah:", Param)
   
-  // error everytime i use searchParams
-  if (searchParams){
-    console.log(searchParams.q);
+  // error everytime i use Param
+  if (Param){
+    console.log(Param.q);
   };
-  if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
-      const qParam = searchParams.q;
+  if (Param && Object.keys(Param).length === 1 && Object.keys(Param)[0] === "q") {
+      const qParam = Param.q;
     if (typeof qParam === 'string') {
         query = qParam.split(' ');
         // console.log("Query: ", query);

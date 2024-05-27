@@ -21,7 +21,7 @@ export type GalleryIndexProps = SliceComponentProps<Content.GalleryIndexSlice> &
  * Component for "GalleryIndex" Slices.
  */
 const GalleryIndex = async ({ slice, context, searchParams }: GalleryIndexProps): Promise <JSX.Element> => {
-  console.log("search param bismillah:", searchParams)
+  console.log("search param bismillah index.tsx:", searchParams)
   const tags = context.tags; //ini dari querrystring yg di kriim dari index
   const client = createClient()
   const documents = await client.getAllByEveryTag(tags) //or getAllByType('product') to get all
