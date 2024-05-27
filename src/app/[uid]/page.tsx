@@ -25,8 +25,11 @@ export default async function Page({ params, searchParams }: { params: Params, s
   const client = createClient();
   const result = await fetchDocument(params.uid, client);
   let query: string[] = ["makanan"];
-
+  
   console.log(searchParams);
+  if (searchParams){
+    console.log(searchParams.q);
+  }
   // if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
   //   const qParam = searchParams.q;
   //   if (typeof qParam === 'string') {
