@@ -20,26 +20,10 @@ async function fetchDocument(uid: string, client: any) {
     }
   }
 }
-// export default async function Page({ params }: { params: Params }) {
-export default async function Page({ params, searchParams }: { params: Params, searchParams?: { q: string };}) {
+export default async function Page({ params }: { params: Params }) {
   const client = createClient();
   const result = await fetchDocument(params.uid, client);
-  let query: string[] = [];
-
-  console.log("search param bismillah:", searchParams)
-  
-  // error everytime i use searchParams
-  if (searchParams){
-    console.log(searchParams.q);
-  };
-  if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
-      const qParam = searchParams.q;
-    if (typeof qParam === 'string') {
-        query = qParam.split(' ');
-        // console.log("Query: ", query);
-      }
-    };
-    
+   
     if (!result) {
       notFound();
     };
@@ -50,7 +34,7 @@ export default async function Page({ params, searchParams }: { params: Params, s
   return (
     <>
       {type === "product" && <Product document={document} />}
-      <SliceZone slices={document.data.slices} components={components} context={{ tags: query }}  />
+      <SliceZone slices={document.data.slices} components={components} />
       {/* <SliceZone slices={document.data.slices} components={components}  /> */}
     </>
   );

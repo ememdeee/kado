@@ -20,13 +20,11 @@ async function fetchDocument(uid: string, client: any) {
     }
   }
 }
-// export default async function Page({ params }: { params: Params }) {
-export default async function Page({ params, searchParams }: { params: Params, searchParams?: { q: string };}) {
+
+export default async function Page({ params, searchParams }: { params: Params, searchParams?: { [key: string]: string | string[] | undefined };}) {
   const client = createClient();
   const result = await fetchDocument(params.uid, client);
   let query: string[] = [];
-
-  console.log("search param bismillah:", searchParams)
   
   // error everytime i use searchParams
   if (searchParams){
@@ -36,7 +34,7 @@ export default async function Page({ params, searchParams }: { params: Params, s
       const qParam = searchParams.q;
     if (typeof qParam === 'string') {
         query = qParam.split(' ');
-        // console.log("Query: ", query);
+        console.log("Query: ", query);
       }
     };
     

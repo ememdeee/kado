@@ -12,9 +12,7 @@ export type GalleryIndexProps = SliceComponentProps<Content.GalleryIndexSlice> &
   context: {
     tags: string[];
   };
-  searchParams: { 
-    q?: string;
-  };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 /**
