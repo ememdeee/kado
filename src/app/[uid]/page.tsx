@@ -27,13 +27,13 @@ export default async function Page({ params, searchParams }: { params: Params, s
   let query: string[] = ["makanan"];
 
   console.log(searchParams);
-  if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
-    const qParam = searchParams.q;
-    if (typeof qParam === 'string') {
-      query = qParam.split(' ');
-      // console.log("Query: ", query);
-    }
-  };
+  // if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
+  //   const qParam = searchParams.q;
+  //   if (typeof qParam === 'string') {
+  //     query = qParam.split(' ');
+  //     // console.log("Query: ", query);
+  //   }
+  // };
 
   if (!result) {
     notFound();
