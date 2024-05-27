@@ -27,12 +27,11 @@ export default async function Page({ params, searchParams }: { params: Params, s
   let query: string[] = [];
 
   console.log(searchParams);
-  if (Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
+  if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
     const qParam = searchParams.q;
     if (typeof qParam === 'string') {
-      // console.log("Query String", searchParams);
       query = qParam.split(' ');
-      console.log("Query: ", query);
+      // console.log("Query: ", query);
     }
   };
 
