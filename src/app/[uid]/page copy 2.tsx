@@ -20,29 +20,35 @@ async function fetchDocument(uid: string, client: any) {
     }
   }
 }
-
+// export default async function Page({ params }: { params: Params }) {
 export default async function Page({ params, searchParams }: { params: Params, searchParams?: { [key: string]: string | string[] | undefined };}) {
   const client = createClient();
   const result = await fetchDocument(params.uid, client);
   let query: string[] = ["makanan"];
+  
+  // if (searchParams && Object.keys(searchParams).length === 1 && Object.keys(searchParams)[0] === "q") {
+    //   const qParam = searchParams.q;
+  //   if (typeof qParam === 'string') {
+    //     query = qParam.split(' ');
+    //     // console.log("Query: ", query);
+    //   }
+    // };
+    
+    if (!result) {
+      notFound();
+    };
+    
+    const { type, document } = result;
+    
 
-  if (!result) {
-    notFound();
-  }
-
-  const { type, document } = result;
-
-  if (searchParams) {
-    const qParam = searchParams.q;
-    if (typeof qParam === 'string') {
-      query = qParam.split(' ');
+    if (searchParams){
+      console.log(searchParams.q);
     }
-  }
-
   return (
     <>
       {type === "product" && <Product document={document} />}
       <SliceZone slices={document.data.slices} components={components} context={{ tags: query }}  />
+      {/* <SliceZone slices={document.data.slices} components={components}  /> */}
     </>
   );
 }
