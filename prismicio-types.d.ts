@@ -282,15 +282,37 @@ interface ProductDocumentData {
   images: prismic.GroupField<Simplify<ProductDocumentDataImagesItem>>;
 
   /**
-   * Link field in *Product*
+   * Price field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  price: prismic.KeyTextField;
+
+  /**
+   * Link Tokopedia field in *Product*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: product.link
+   * - **API ID Path**: product.link_tokopedia
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link_tokopedia: prismic.LinkField;
+
+  /**
+   * Link Shopee field in *Product*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.link_shopee
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_shopee: prismic.LinkField;
 
   /**
    * Date field in *Product*

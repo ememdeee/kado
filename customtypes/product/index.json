@@ -53,11 +53,28 @@
           }
         }
       },
-      "link": {
+      "price": {
+        "type": "Text",
+        "config": {
+          "label": "Price",
+          "placeholder": ""
+        }
+      },
+      "link_tokopedia": {
         "type": "Link",
         "config": {
-          "label": "Link",
+          "label": "Link Tokopedia",
           "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "link_shopee": {
+        "type": "Link",
+        "config": {
+          "label": "Link Shopee",
+          "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },

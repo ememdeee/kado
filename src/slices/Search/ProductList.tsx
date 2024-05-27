@@ -28,26 +28,13 @@ export default function ProductList({ products, className }: ProductListProps) {
                   <Heading as="h2" size="ss" className="mb-2">
                     {product.data.title}
                   </Heading>
-                  <div className="max-h-5 overflow-hidden">
-                    <PrismicRichText field={product.data.description} />
-                  </div>
+                  <span className='text-xl font-bold'>Rp. {product.data.price}</span>
                   <TextHoverable label="Details" className="mt-5" />
                 </div>
               </div>
             </Link>
           ))}
       </div>
-      {/* show selected tag - for debugging maybe? */}
-      {/* <p className="mt-4 text-center">Selected Tags:</p>
-      <div className="flex flex-wrap gap-2 justify-center">
-      <div className="mt-4">
-       {selectedTags.map(tag => (
-        <span key={tag} className="group relative inline-block overflow-hidden px-3 py-1 text-base font-bold text-slate-900 rounded-md border-2 border-slate-900 mr-1 bg-yellow-300">
-          {tag}
-        </span>
-        ))}
-      </div>
-      </div> */}
     </div>
   );
 }
