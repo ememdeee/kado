@@ -8,14 +8,22 @@ import Heading from "@/component/Heading";
 /**
  * Props for `GalleryIndex`.
  */
-export type GalleryIndexProps = SliceComponentProps<Content.GalleryIndexSlice>;
+export type GalleryIndexProps = SliceComponentProps<Content.GalleryIndexSlice> & {
+  context: {
+    tags: string[];
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 /**
  * Component for "GalleryIndex" Slices.
  */
-const GalleryIndex = async ({ slice }: GalleryIndexProps): Promise <JSX.Element> => {
+const GalleryIndex = async ({ slice, context, searchParams }: GalleryIndexProps): Promise <JSX.Element> => {
+  console.log("search param bismillah:", searchParams)
+  const tags = context.tags; //ini dari querrystring yg di kriim dari index
   const client = createClient()
-  const products = await client.getAllByType('product') //or getAllByEveryTag(tags) to get all
+  const documents = await client.getAllByEveryTag(tags) //or getAllByType('product') to get all
+  const products = documents.filter(doc => doc.type === "product");
 
   return (
     <>
