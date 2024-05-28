@@ -35,7 +35,6 @@ export default async function Page({ params }: { params: Params }) {
     <>
       {type === "product" && <Product document={document} />}
       <SliceZone slices={document.data.slices} components={components} />
-      {/* <SliceZone slices={document.data.slices} components={components}  /> */}
     </>
   );
 }
