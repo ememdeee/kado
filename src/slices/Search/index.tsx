@@ -25,7 +25,6 @@ const GalleryIndex = async ({ slice }: GalleryIndexProps): Promise <JSX.Element>
           <Heading>{slice.primary.heading}</Heading>
           <PrismicRichText field={slice.primary.description} />
           <ProductList products={products as Content.ProductDocument[]} className="mt-4" />
-          {/* <p>Query String List {tags.join(", ")}</p> */}
       </Bounded>
     </>
   );
