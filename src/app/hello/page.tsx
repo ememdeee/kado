@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
   const client = createClient(); //errornya disini, harus manual kayknya?
   // const documents = await client.getAllByType('product')
-  const documents = await client.getAllByEveryTag(tags) //or getAllByType('product') to get all
+  const documents = await client.getAllByEveryTag(["makanan"]) //or getAllByType('product') to get all
   const products = documents.filter(doc => doc.type === "product");
 
   return (
