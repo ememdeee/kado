@@ -38,7 +38,7 @@ export default function ProductList({ products, className }: ProductListProps) {
                   <Heading as="h2" size="ss" className="mb-2">
                     {product.data.title}
                   </Heading>
-                  <span className='text-xl font-bold'>Rp. {product.data.price}</span>
+                  <span className='text-xl font-bold'>Rp. {product.data.price}</span> 
                   <TextHoverable label="Details" className="mt-5" />
                 </div>
               </div>
