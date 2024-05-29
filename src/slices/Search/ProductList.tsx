@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { Content } from "@prismicio/client";
 import "@/app/globals.css";
 import Link from "next/link";
 import TextHoverable from "@/component/TextHoverable";
 import Heading from "@/component/Heading";
-import { PrismicImage, PrismicRichText } from "@prismicio/react";
-import Button from "@/component/Button";
+import { PrismicImage } from "@prismicio/react";
 import { useSearchParams } from "next/navigation";
 
 type ProductListProps = {
@@ -28,11 +27,11 @@ export default function ProductList({ products, className }: ProductListProps) {
 
   return (
     <div className={clsx("", className)}>
-      <div className="w-fit mx-auto grid gap-y-20 gap-x-14 mt-10 mb-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+      <div className="w-fit mx-auto grid gap-y-20 gap-x-14 mt-10 mb-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center">
         {products
-        .filter(product => tags.every(tag => product.tags.includes(tag)))
-        .map(product => (
-            <Link href={product.uid} passHref key={product.id} className="max-w-72 w-full">
+          .filter(product => tags.every(tag => product.tags.includes(tag)))
+          .map((product, index) => (
+            <Link href={product.uid} passHref key={product.id} className={`max-w-72 w-full zoomOut`} style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
                 <PrismicImage field={product.data.mainimage} className="h-80 object-cover rounded-t-xl" />
                 <div className="px-4 py-3">

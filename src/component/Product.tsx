@@ -55,7 +55,10 @@ const [activeImg, setActiveImage] = useState(document.data.mainimage)
                 <span className='text-yellow-400 font-bold'>{document.data.date}</span>
                 <Heading>{document.data.title}</Heading>
                 <PrismicRichText field={document.data.description} />
-                <span className='text-3xl font-bold'>Rp. {document.data.price}</span>
+                <div className=''>
+                    <span className='text-yellow-400 font-bold block mb-2'>Start From</span>
+                    <span className='text-3xl font-bold block'>Rp. {document.data.price}</span>
+                </div>
                 <div className='flex flex-col md:flex-row gap-2'>
                     {document.data.link_tokopedia.url && <Button linkField={document.data.link_tokopedia} label="Via Tokopedia!" />}
                     {document.data.link_shopee.url && <Button linkField={document.data.link_shopee} label="Via Shopee!" />}

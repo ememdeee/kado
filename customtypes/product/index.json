@@ -127,6 +127,13 @@
           "thumbnails": []
         },
         "type": "Image"
+      },
+      "canonical": {
+        "type": "Text",
+        "config": {
+          "label": "Canonical",
+          "placeholder": ""
+        }
       }
     }
   }
