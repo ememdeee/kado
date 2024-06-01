@@ -1,11 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceZone } from "@prismicio/react";
-
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
-import Bounded from "@/component/Bounded";
-import Heading from "@/component/Heading";
+import ContentBody from "@/component/ContentBody";
 
 type Params = { uid: string };
 
@@ -15,19 +11,7 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("blog", params.uid)
     .catch(() => notFound());
 
-  return (
-    <Bounded>
-      <Heading>{page.data.title}</Heading>
-      <p>Tags: 
-        {page.tags.map((tag, index) => (
-        <span key={index}> {tag} </span>
-      ))}
-      </p>
-      <p>Published Date: {page.data.date}</p>
-
-      <SliceZone slices={page.data.slices} components={components} />
-    </Bounded>
-  );
+  return <ContentBody page={page} />;
 }
 
 export async function generateMetadata({

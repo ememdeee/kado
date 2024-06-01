@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Head from 'next/head';
 import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
@@ -56,6 +57,9 @@ export async function generateMetadata({
   return {
     title: document.data.meta_title,
     description: document.data.meta_description,
+    alternates: {
+      canonical: document.data.canonical ? document.data.canonical: '/'+params.uid,
+    },
   };
 }
 

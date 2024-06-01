@@ -1,5 +1,5 @@
 'use client'
-import { PrismicNextImage, PrismicNextImageProps } from '@prismicio/next';
+import { PrismicNextImage } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import React, { useState } from 'react';
 import Heading from './Heading';
@@ -40,14 +40,10 @@ const [activeImg, setActiveImage] = useState(document.data.mainimage)
         <div className='flex flex-col justify-between lg:flex-row gap-10 lg:items-center mb-4 md:gap-16'>
             <div className='flex flex-col gap-6 lg:w-2/4'>
                 <PrismicNextImage field={activeImg} className='w-full h-full aspect-square object-cover rounded-xl' />
-                {/* <ImageContainer image={document.data.mainimage} width={500} /> */}
                 <div className='flex flex-row justify-start gap-2 overflow-x-auto custom-scrollbar'>
                     <PrismicNextImage field={document.data.mainimage} className='w-24 h-24 rounded-md cursor-pointer object-cover md:w-28 md:h-28' onClick={()=> setActiveImage(document.data.mainimage)} />
                     {document.data.images.map((images, index) => (
                         <PrismicNextImage key={index} field={images.image} className='w-24 h-24 rounded-md cursor-pointer object-cover md:w-28 md:h-28' onClick={()=> setActiveImage(images.image)}/>
-                        // <span key={index} className=''>
-                        //     <ImageContainer image={images.image} width={400} />
-                        // </span>
                     ))}
                 </div>
             </div>
