@@ -73,6 +73,18 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
+
+  /**
+   * Index field in *Blog*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Index
+   * - **API ID Path**: blog.index
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  index: prismic.SelectField<"Index" | "No Index", "filled">;
 }
 
 /**
@@ -202,6 +214,18 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
+
+  /**
+   * Index field in *Page*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Index
+   * - **API ID Path**: page.index
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  index: prismic.SelectField<"Index" | "No Index", "filled">;
 }
 
 /**
@@ -388,6 +412,18 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   canonical: prismic.KeyTextField;
+
+  /**
+   * Index field in *Product*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Index
+   * - **API ID Path**: product.index
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  index: prismic.SelectField<"Index" | "No Index", "filled">;
 }
 
 /**

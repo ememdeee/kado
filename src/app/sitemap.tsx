@@ -1,50 +1,67 @@
-import { createClient } from '@/prismicio';
-import { MetadataRoute } from 'next';
+// app/sitemap.tsx
+import { MetadataRoute } from 'next'
+import { createClient } from "@/prismicio";
 
-// Function to fetch content data
-async function fetchContent() {
-  const client = createClient();
-  const blogs = await client.getAllByType('blog');
-  const products = await client.getAllByType('product');
-  const pages = await client.getAllByType('page');
-
-  return { blogs, products, pages };
+// Define SitemapEntry type
+interface SitemapEntry {
+  url: string;
+  lastModified: Date;
+  changeFrequency?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "daily" | "never" | undefined;
+  priority?: number;
 }
 
-// Function to generate the sitemap
-export default async function sitemap(): Promise<MetadataRoute.Sitemap[]> {
-  const { blogs, products, pages } = await fetchContent();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const client = createClient();
+  const pages = await client.getAllByType('page');
+  console.log(pages)
+  const products = await client.getAllByType('product');
+  const blogs = await client.getAllByType('blog');
 
-  const blogUrls = blogs.map(blog => ({
-    url: `https://isikado.com/blog/${blog.uid}`,
-    lastModified: new Date(blog.last_publication_date).toISOString(),
-    changeFrequency: 'weekly',
-    priority: 0.5,
-  }));
+  const sitemapEntries: SitemapEntry[] = [];
 
-  const productUrls = products.map(product => ({
-    url: `https://isikado.com/${product.uid}`,
-    lastModified: new Date(product.last_publication_date).toISOString(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
+  // Add main domain or home page
+  sitemapEntries.push({
+    url: `https://isikado.com/`,
+    lastModified: new Date(),
+    changeFrequency: 'daily',
+    // priority: 1,
+  });
 
-  const pageUrls = pages.map(page => ({
-    url: `https://isikado.com/${page.uid}`,
-    lastModified: new Date(page.last_publication_date).toISOString(),
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }));
+  // Add pages to sitemap
+  pages.forEach((page) => {
+    if (page.data.index !== "No Index") {
+      sitemapEntries.push({
+        url: `https://isikado.com/${page.uid}`,
+        lastModified: new Date(page.last_publication_date),
+        changeFrequency: 'daily',
+        // priority: 1,
+      });
+    }
+  });
 
-  return [
-    {
-      url: 'https://isikado.com',
-      lastModified: new Date().toISOString(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    ...pageUrls,
-    ...blogUrls,
-    ...productUrls
-  ];
+  // Add products to sitemap
+  products.forEach((product) => {
+    if (product.data.index !== "No Index") {
+      sitemapEntries.push({
+        url: `https://isikado.com/${product.uid}`,
+        lastModified: new Date(product.last_publication_date),
+        changeFrequency: 'daily',
+        // priority: 1,
+      });
+    }
+  });
+
+  // Add blogs to sitemap
+  blogs.forEach((blog) => {
+    if (blog.data.index !== "No Index") {
+      sitemapEntries.push({
+        url: `https://isikado.com/${blog.uid}`,
+        lastModified: new Date(blog.last_publication_date),
+        changeFrequency: 'daily',
+        // priority: 1,
+      });
+    }
+  });
+
+  return sitemapEntries;
 }
