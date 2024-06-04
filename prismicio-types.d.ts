@@ -284,17 +284,6 @@ interface ProductDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * MainImage field in *Product*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.mainimage
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  mainimage: prismic.ImageField<never>;
-
-  /**
    * Images field in *Product*
    *
    * - **Field Type**: Group

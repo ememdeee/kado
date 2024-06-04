@@ -15,7 +15,6 @@ type ImageField = {
   
 type DocumentData = {
     title: string;
-    mainimage: any; // Replace 'any' with the appropriate type for the main image
     images: ImageField[];
     description: any; // Replace 'any' with the appropriate type for the description
     detail: any; // Replace 'any' with the appropriate type for the description
@@ -33,7 +32,7 @@ type ProductProps = {
 };
 
 const Product: React.FC<ProductProps> = ({ document }) => {
-const [activeImg, setActiveImage] = useState(document.data.mainimage)
+const [activeImg, setActiveImage] = useState(document.data.images[0].image)
 
   return (
     <Bounded>
@@ -41,7 +40,6 @@ const [activeImg, setActiveImage] = useState(document.data.mainimage)
             <div className='flex flex-col gap-6 lg:w-2/4'>
                 <PrismicNextImage field={activeImg} className='w-full h-full aspect-square object-cover rounded-xl' />
                 <div className='flex flex-row justify-start gap-2 overflow-x-auto custom-scrollbar'>
-                    <PrismicNextImage field={document.data.mainimage} className='w-24 h-24 rounded-md cursor-pointer object-cover md:w-28 md:h-28' onClick={()=> setActiveImage(document.data.mainimage)} />
                     {document.data.images.map((images, index) => (
                         <PrismicNextImage key={index} field={images.image} className='w-24 h-24 rounded-md cursor-pointer object-cover md:w-28 md:h-28' onClick={()=> setActiveImage(images.image)}/>
                     ))}

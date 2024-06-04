@@ -33,7 +33,9 @@ export default function ProductList({ products, className }: ProductListProps) {
           .map((product, index) => (
             <Link href={product.uid} passHref key={product.id} className={`max-w-72 w-full zoomOut`} style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-                <PrismicImage field={product.data.mainimage} className="h-80 object-cover rounded-t-xl" />
+                {product.data.images?.[0] && (
+                  <PrismicImage field={product.data.images[0].image} className="h-80 object-cover rounded-t-xl" />
+                )}
                 <div className="px-4 py-3">
                   <Heading as="h2" size="ss" className="mb-2">
                     {product.data.title}
