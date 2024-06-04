@@ -54,8 +54,9 @@ export default function ProductList({ products, className }: ProductListProps) {
           .map(product => (
             <Link href={product.uid} passHref key={product.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
               <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md">
-                <PrismicImage field={product.data.mainimage} />
-                {/* <ImageContainer image={product.data.mainimage} width={350} /> */}
+                {product.data.images?.[0] && (
+                  <PrismicImage field={product.data.images[0].image} className="h-80 object-cover rounded-t-xl" />
+                )}
                 <div className="p-3">
                   <Heading as="h2" size="ss" className="mb-2">
                     {product.data.title}
