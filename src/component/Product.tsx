@@ -36,8 +36,8 @@ const [activeImg, setActiveImage] = useState(document.data.images[0].image)
 
   return (
     <Bounded>
-        <div className='flex flex-col justify-between lg:flex-row gap-10 lg:items-center mb-4 md:gap-16'>
-            <div className='flex flex-col gap-6 lg:w-2/4'>
+        <div className='flex flex-col justify-between lg:flex-row gap-10 lg:items-start mb-4 md:gap-16'>
+            <div className='flex flex-col gap-6 lg:w-1/3 lg:top-20 lg:sticky'>
                 <PrismicNextImage field={activeImg} className='w-full h-full aspect-square object-cover rounded-xl' />
                 <div className='flex flex-row justify-start gap-2 overflow-x-auto custom-scrollbar'>
                     {document.data.images.map((images, index) => (
@@ -45,9 +45,9 @@ const [activeImg, setActiveImage] = useState(document.data.images[0].image)
                     ))}
                 </div>
             </div>
-            <div className='flex flex-col gap-4 lg:w-2/4'>
+            <div className='flex flex-col gap-4 lg:w-2/3'>
                 <span className='text-yellow-400 font-bold'>{document.data.date}</span>
-                <Heading>{document.data.title}</Heading>
+                <Heading size="md" >{document.data.title}</Heading>
                 <PrismicRichText field={document.data.description} />
                 <div className=''>
                     <span className='text-yellow-400 font-bold block mb-2'>Start From</span>
