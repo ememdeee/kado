@@ -71,13 +71,15 @@ const Form: React.FC<FormProps> = ({ className }) => {
               className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
             >
               <option value="">Pilih Umur</option>
-              <option value="komputer">komputer</option>
-              <option value="18-25">18-25</option>
-              <option value="26-35">26-35</option>
-              <option value="36-45">36-45</option>
-              <option value="46-55">46-55</option>
-              <option value="56-65">56-65</option>
-              <option value="65+">65+</option>
+              <option value="New_Born">New Born</option>
+              <option value="1-5_Tahun">1-5 Tahun</option>
+              <option value="6-9_Tahun">6-9 Tahun</option>
+              <option value="10-16_Tahun">10-16 Tahun</option>
+              <option value="17-25_Tahun">17-25 Tahun</option>
+              <option value="26-32_Tahun">26-32 Tahun</option>
+              <option value="33-40_Tahun">33-40 Tahun</option>
+              <option value="40-50_Tahun">40-50 Tahun</option>
+              <option value="60+_Tahun">60+ Tahun</option>
             </select>
           </div>
 

@@ -46,3 +46,8 @@
   max-height: 2.8em; /* Adjust this based on the line height */
   line-height: 1.4em; /* Adjust this based on your actual line height */
 }
+
+section ol {
+  list-style-type: disc;
+  padding-left: 25px;
+}
