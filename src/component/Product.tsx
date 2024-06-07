@@ -46,7 +46,7 @@ const [activeImg, setActiveImage] = useState(document.data.images[0].image)
                 </div>
             </div>
             <div className='flex flex-col gap-4 lg:w-2/3'>
-                <span className='text-yellow-400 font-bold'>{document.data.date}</span>
+                {/* <span className='text-yellow-400 font-bold'>{document.data.date}</span> */}
                 <Heading size="md" >{document.data.title}</Heading>
                 <PrismicRichText field={document.data.description} />
                 <div className=''>
