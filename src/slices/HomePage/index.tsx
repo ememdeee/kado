@@ -19,6 +19,7 @@ const Hero = async ({ slice }: HeroProps): Promise <JSX.Element> => {
       <Bounded
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
+          className="flex items-center h-screen"
       >
         <Heading className="mb-4">
           {slice.primary.heading}
