@@ -64,7 +64,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
         className={clsx("w-full space-y-4", className)}
         >
         <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
-          <div>
+          <div className='shadow rounded-md overflow-hidden'>
             <label htmlFor="kelamin" className="hidden text-md font-medium text-gray-700">
               Kelamin
             </label>
@@ -73,7 +73,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
               name="kelamin"
               value={formData.kelamin}
               onChange={handleChange}
-              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white focus:outline-none focus:border-blue-600"
             >
               <option value="">Pilih Kelamin</option>
               <option value="Laki-laki">Laki-laki</option>
@@ -81,7 +81,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
             </select>
           </div>
 
-          <div>
+          <div className='shadow rounded-md overflow-hidden'>
             <label htmlFor="umur" className="hidden text-md font-medium text-gray-700">
               Umur
             </label>
@@ -90,7 +90,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
               name="umur"
               value={formData.umur}
               onChange={handleChange}
-              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white focus:outline-none focus:border-blue-600"
             >
               <option value="">Pilih Umur</option>
               <option value="New_Born">New Born</option>
@@ -105,7 +105,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
             </select>
           </div>
 
-          <div>
+          <div className='shadow rounded-md overflow-hidden'>
             <label htmlFor="budgetMin" className="hidden text-md font-medium text-gray-700">
               Budget Minimal
             </label>
@@ -116,12 +116,12 @@ const Form: React.FC<FormProps> = ({ className }) => {
               placeholder='Budget Minmal'
               value={formatPriceDisplay(formData.budgetMin)}
               onChange={handlePriceChange}
-              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600 custom-placeholder"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white focus:outline-none focus:border-blue-600 custom-placeholder"
             >
             </input>
           </div>
 
-          <div>
+          <div className='shadow rounded-md overflow-hidden'>
             <label htmlFor="budgetMax" className="hidden text-md font-medium text-gray-700">
               Budget Maksimal
             </label>
@@ -132,14 +132,14 @@ const Form: React.FC<FormProps> = ({ className }) => {
               placeholder='Budget Maksimal'
               value={formatPriceDisplay(formData.budgetMax)}
               onChange={handlePriceChange}
-              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600 custom-placeholder"
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white focus:outline-none focus:border-blue-600 custom-placeholder"
             >
             </input>
           </div>
         </div>
         <div className='text-center underline cursor-pointer w-fit mx-auto' onClick={toggleAdvance}>Pilihan Tambahan</div>
-        <div className={`grid grid-cols-1 sm:grid-cols-1 gap-1 transition-all duration-300 ease-in-out overflow-hidden !mt-0 ${isVisible ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div>
+        <div className={`grid grid-cols-1 sm:grid-cols-1 gap-1 transition-all duration-300 ease-in-out overflow-visible !mt-0 ${isVisible ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className='shadow rounded-md overflow-hidden'>
               <label htmlFor="profesi" className="hidden text-md font-medium text-gray-700">
                 Profesi
               </label>
@@ -148,7 +148,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
                 name="profesi"
                 value={formData.profesi}
                 onChange={handleChange}
-                className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
+                className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white focus:outline-none focus:border-blue-600"
               >
                 <option value="">Pilih Profesi</option>
                 <option value="Mahasiswa">Mahasiswa</option>
