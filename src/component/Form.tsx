@@ -138,7 +138,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
           </div>
         </div>
         <div className='text-center underline cursor-pointer w-fit mx-auto' onClick={toggleAdvance}>Pilihan Tambahan</div>
-        <div className={`grid grid-cols-1 sm:grid-cols-1 gap-1 transition-all duration-300 ease-in-out overflow-visible !mt-0 ${isVisible ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-1 gap-1 transition-all duration-300 ease-in-out overflow-visible !mt-0 ${isVisible ? 'max-h-40 opacity-100 !mt-4' : 'max-h-0 opacity-0'}`}>
           <div className='shadow rounded-md overflow-hidden'>
               <label htmlFor="profesi" className="hidden text-md font-medium text-gray-700">
                 Profesi
