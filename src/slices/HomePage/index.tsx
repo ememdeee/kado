@@ -23,7 +23,7 @@ const Hero = async ({ slice }: HeroProps): Promise <JSX.Element> => {
       >
       <div className="min-h-screen flex flex-col justify-center">
         <Heading className="mb-4 text-center">
-          Logo
+          IsiKado
         </Heading>
         <Popup />
         {/* <Form className="mt-6 mb-6"/> */}
@@ -34,7 +34,7 @@ const Hero = async ({ slice }: HeroProps): Promise <JSX.Element> => {
           data-slice-variation={slice.variation}
           className="flex items-center"
       >
-        <Heading className="mb-4">
+        <Heading className="mb-4" size="md">
           {slice.primary.heading}
         </Heading>
         <PrismicRichText field={slice.primary.description}/>

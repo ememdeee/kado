@@ -14,12 +14,26 @@ const Form: React.FC<FormProps> = ({ className }) => {
     kelamin: '',
     umur: '',
     budget: '',
+    budgetMin: '',
+    budgetMax: '',
     profesi: ''
   });
   
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Extract numeric value
+
+    setFormData({ ...formData, [name]: numericValue });
+  };
+
+  const formatPriceDisplay = (value: string) => {
+    if (!value) return '';
+    return `Rp.${new Intl.NumberFormat('id-ID').format(Number(value))}`;
   };
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,19 +43,27 @@ const Form: React.FC<FormProps> = ({ className }) => {
     if (formData.kelamin) queryArray.push(formData.kelamin);
     if (formData.umur) queryArray.push(formData.umur);
     if (formData.budget) queryArray.push(formData.budget);
+    if (formData.budgetMin) queryArray.push(formData.budgetMin);
+    if (formData.budgetMax) queryArray.push(formData.budgetMax);
     if (formData.profesi) queryArray.push(formData.profesi);
     
     const query = queryArray.join('+');
     router.push(`/search?q=${query}`);
   };
   
+  const [isVisible, setIsvisble] = useState(false);
+    
+  const toggleAdvance = () => {
+      setIsvisble(prevstate => !prevstate);
+  };
+
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center w-full max-w-screen-lg">
       <form
         onSubmit={handleSubmit}
         className={clsx("w-full space-y-4", className)}
         >
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="kelamin" className="hidden text-md font-medium text-gray-700">
               Kelamin
@@ -84,45 +106,58 @@ const Form: React.FC<FormProps> = ({ className }) => {
           </div>
 
           <div>
-            <label htmlFor="budget" className="hidden text-md font-medium text-gray-700">
-              Budget
+            <label htmlFor="budgetMin" className="hidden text-md font-medium text-gray-700">
+              Budget Minimal
             </label>
-            <select
-              id="budget"
-              name="budget"
-              value={formData.budget}
-              onChange={handleChange}
-              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
+            <input
+              id="budgetMin"
+              name="budgetMin"
+              type='text'
+              placeholder='Budget Minmal'
+              value={formatPriceDisplay(formData.budgetMin)}
+              onChange={handlePriceChange}
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600 custom-placeholder"
             >
-              <option value="">Pilih Budget</option>
-              <option value="buah">buah</option>
-              <option value="0-1j">0-1j</option>
-              <option value="1jt-2j">1jt-2j</option>
-              <option value="3jt-4j">3jt-4j</option>
-            </select>
+            </input>
           </div>
 
           <div>
-            <label htmlFor="profesi" className="hidden text-md font-medium text-gray-700">
-              Profesi
+            <label htmlFor="budgetMax" className="hidden text-md font-medium text-gray-700">
+              Budget Maksimal
             </label>
-            <select
-              id="profesi"
-              name="profesi"
-              value={formData.profesi}
-              onChange={handleChange}
-              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
+            <input
+              id="budgetMax"
+              type='text'
+              name="budgetMax"
+              placeholder='Budget Maksimal'
+              value={formatPriceDisplay(formData.budgetMax)}
+              onChange={handlePriceChange}
+              className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600 custom-placeholder"
             >
-              <option value="">Pilih Profesi</option>
-              <option value="makanan">makanan</option>
-              <option value="Mahasiswa">Mahasiswa</option>
-              <option value="Pekerja">Pekerja</option>
-              <option value="Pengusaha">Pengusaha</option>
-              <option value="Lainnya">Lainnya</option>
-            </select>
+            </input>
           </div>
         </div>
-
+        <div className='text-center underline cursor-pointer w-fit mx-auto' onClick={toggleAdvance}>Pilihan Tambahan</div>
+        <div className={`grid grid-cols-1 sm:grid-cols-1 gap-1 transition-all duration-300 ease-in-out overflow-hidden !mt-0 ${isVisible ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div>
+              <label htmlFor="profesi" className="hidden text-md font-medium text-gray-700">
+                Profesi
+              </label>
+              <select
+                id="profesi"
+                name="profesi"
+                value={formData.profesi}
+                onChange={handleChange}
+                className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white shadow focus:outline-none focus:border-blue-600"
+              >
+                <option value="">Pilih Profesi</option>
+                <option value="Mahasiswa">Mahasiswa</option>
+                <option value="Pekerja">Pekerja</option>
+                <option value="Pengusaha">Pengusaha</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+          </div>
+        </div>
         <div className="mt-4">
             <button
               type="submit"

@@ -51,3 +51,9 @@ section ul {
   list-style-type: disc;
   padding-inline-start: 1.5555556em;
 }
+
+/* place holder for main form */
+.custom-placeholder::placeholder {
+  color: #4B5563; /* Customize this color as needed */
+  opacity: 1; /* Make the placeholder fully opaque */
+}

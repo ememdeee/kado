@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import Form from './Form';
+import { MdSearch } from 'react-icons/md';
 
 const Popup = () => {
     const [isVisible, setIsvisble] = useState(false);
@@ -11,9 +12,15 @@ const Popup = () => {
         setIsvisble(prevstate => !prevstate);
     };
     return (
-        <div>
-            <button onClick={togglePopup}>Show Popup</button>
-            <div className={`fixed inset-0 flex items-end justify-center px-4 bg-black bg-opacity-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <div className='text-center'>
+            <div
+            className="w-full max-w-3xl px-4 py-2 mx-auto bg-white rounded-full shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300 flex items-center space-x-2 border border-gray-200"
+            onClick={togglePopup}
+            >
+                <MdSearch className="text-gray-500 text-xl md:text-2xl" />
+                <p className="text-gray-500 text-base md:text-lg">Search...</p>
+            </div>
+            <div className={`z-20 fixed inset-0 flex items-end justify-center px-4 bg-black bg-opacity-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <div className={`bg-white rounded-t-lg shadow-lg transform transition-transform duration-300 z-10 ${isVisible ? 'translate-y-0' : 'translate-y-full'} w-full max-w-5xl mx-auto p-4 py-8`}>
                     <div className="flex flex-col justify-between items-center">
                         <h2 className="text-xl font-semibold mb-4">Fill the Form</h2>
