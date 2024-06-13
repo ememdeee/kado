@@ -43,8 +43,8 @@ const Form: React.FC<FormProps> = ({ className }) => {
     if (formData.kelamin) queryArray.push(formData.kelamin);
     if (formData.umur) queryArray.push(formData.umur);
     if (formData.budget) queryArray.push(formData.budget);
-    if (formData.budgetMin) queryArray.push(formData.budgetMin);
-    if (formData.budgetMax) queryArray.push(formData.budgetMax);
+    if (formData.budgetMin) queryArray.push(`Min_${formData.budgetMin}`);
+    if (formData.budgetMax) queryArray.push(`Max_${formData.budgetMax}`);
     if (formData.profesi) queryArray.push(formData.profesi);
     
     const query = queryArray.join('+');

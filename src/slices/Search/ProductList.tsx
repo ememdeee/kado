@@ -20,9 +20,18 @@ export default function ProductList({ products, className }: ProductListProps) {
   const searchParams = useSearchParams();
   const q = searchParams.get("q");
   console.log(q)
+
   if (typeof q === 'string') {
     tags = q.split(' ');
+    // Find and extract max,min price, removing it from the tags array
+    const maxIndex = tags.findIndex(tag => tag.startsWith('Max_'));
+    const maxPrice = maxIndex !== -1 ? parseInt(tags.splice(maxIndex, 1)[0].replace('Max_', ''), 10) : 999999999;
+    const minIndex = tags.findIndex(tag => tag.startsWith('Min_'));
+    const minPrice = minIndex !== -1 ? parseInt(tags.splice(minIndex, 1)[0].replace('Min_', ''), 10) : 0;
+
     console.log("Query: ", tags);
+    console.log("Min: ", minPrice);
+    console.log("Max: ", maxPrice);
   }
 
   return (
