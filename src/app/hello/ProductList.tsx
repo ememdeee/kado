@@ -1,13 +1,7 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { Content } from "@prismicio/client";
 import "@/app/globals.css";
-import Link from "next/link";
-import TextHoverable from "@/component/TextHoverable";
-import Heading from "@/component/Heading";
-import { PrismicImage, PrismicRichText } from "@prismicio/react";
 import ProductBox from "@/component/ProductBox";
 
 type ProductListProps = {
