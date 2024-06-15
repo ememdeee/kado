@@ -57,3 +57,13 @@ section ul {
   color: #4B5563; /* Customize this color as needed */
   opacity: 1; /* Make the placeholder fully opaque */
 }
+
+/* Custom CSS for transition effect */
+.fade-in {
+  animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}

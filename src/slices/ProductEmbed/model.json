@@ -1,0 +1,29 @@
+{
+  "id": "products",
+  "type": "SharedSlice",
+  "name": "ProductEmbed",
+  "description": "Products",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "product_link": {
+          "type": "Link",
+          "config": {
+            "label": "Product Link",
+            "select": "document",
+            "customtypes": [
+              "product"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

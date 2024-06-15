@@ -8,5 +8,6 @@ export const components = {
   gallery_index: dynamic(() => import("./Search")),
   hero: dynamic(() => import("./HomePage")),
   image_block: dynamic(() => import("./ImageBlock")),
+  products: dynamic(() => import("./ProductEmbed")),
   text_block: dynamic(() => import("./TextBlock")),
 };

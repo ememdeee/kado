@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type BlogDocumentDataSlicesSlice = ImageBlockSlice | TextBlockSlice;
+type BlogDocumentDataSlicesSlice =
+  | ProductsSlice
+  | ImageBlockSlice
+  | TextBlockSlice;
 
 /**
  * Content for Blog documents
@@ -297,13 +300,13 @@ interface ProductDocumentData {
   /**
    * Price field in *Product*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Number
    * - **Placeholder**: *None*
-   * - **API ID Path**: product.price
+   * - **API ID Path**: product.price_new
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#number
    */
-  price: prismic.KeyTextField;
+  price_new: prismic.NumberField;
 
   /**
    * Link Tokopedia field in *Product*
@@ -907,6 +910,51 @@ export type ImageBlockSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ProductEmbed → Default → Primary*
+ */
+export interface ProductsSliceDefaultPrimary {
+  /**
+   * Product Link field in *ProductEmbed → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: products.default.primary.product_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product_link: prismic.ContentRelationshipField<"product">;
+}
+
+/**
+ * Default variation for ProductEmbed Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductEmbed*
+ */
+type ProductsSliceVariation = ProductsSliceDefault;
+
+/**
+ * ProductEmbed Shared Slice
+ *
+ * - **API ID**: `products`
+ * - **Description**: Products
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductsSlice = prismic.SharedSlice<
+  "products",
+  ProductsSliceVariation
+>;
+
+/**
  * Primary content in *TextBlock → Default → Primary*
  */
 export interface TextBlockSliceDefaultPrimary {
@@ -998,6 +1046,10 @@ declare module "@prismicio/client" {
       ImageBlockSliceDefaultPrimary,
       ImageBlockSliceVariation,
       ImageBlockSliceDefault,
+      ProductsSlice,
+      ProductsSliceDefaultPrimary,
+      ProductsSliceVariation,
+      ProductsSliceDefault,
       TextBlockSlice,
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,

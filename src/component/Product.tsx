@@ -6,6 +6,7 @@ import Heading from './Heading';
 import Bounded from './Bounded';
 import Button from './Button';
 import { MdArrowForward, MdArrowBack } from "react-icons/md";
+import FormatPrice from './FormatPrice';
 
 type ImageField = {
     image: any; // Replace 'any' with the appropriate type for the image field
@@ -16,7 +17,7 @@ type DocumentData = {
     images: ImageField[];
     description: any; // Replace 'any' with the appropriate type for the description
     detail: any; // Replace 'any' with the appropriate type for the description
-    price: any;
+    price_new: any;
     link_tokopedia: any;
     link_shopee: any;
     date: any;
@@ -34,6 +35,9 @@ const Product: React.FC<ProductProps> = ({ document }) => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
+
+    // State to control the read more functionality
+    const [showFullDescription, setShowFullDescription] = useState(false);
 
     // Function to handle scrolling to the right
     const scrollRight = () => {
@@ -81,6 +85,11 @@ const Product: React.FC<ProductProps> = ({ document }) => {
         }
     }, []);
 
+    // Function to handle Read More toggle
+    const handleReadMoreToggle = () => {
+        setShowFullDescription(!showFullDescription);
+    };
+
     return (
         <Bounded>
             <div className='flex flex-col justify-between lg:flex-row gap-10 lg:items-start mb-4 md:gap-16'>
@@ -114,10 +123,18 @@ const Product: React.FC<ProductProps> = ({ document }) => {
                 </div>
                 <div className='flex flex-col gap-4 lg:w-2/3'>
                     <Heading size="md" >{document.data.title}</Heading>
-                    <PrismicRichText field={document.data.description} />
+                    {/* <PrismicRichText field={document.data.description} /> */}
+                    <div>
+                        <PrismicRichText field={showFullDescription ? document.data.description : document.data.description.slice(0, 4)} />
+                        {document.data.description.length > 4 && (
+                            <span onClick={handleReadMoreToggle} className="block cursor-pointer underline">
+                                {showFullDescription ? "Read Less" : "Read More"}
+                            </span>
+                        )}
+                    </div>
                     <div className=''>
                         <span className='text-yellow-400 font-bold block mb-2'>Start From</span>
-                        <span className='text-3xl font-bold block'>Rp. {document.data.price}</span>
+                        <span className='text-3xl font-bold block'><FormatPrice value={document.data.price_new} /></span>
                     </div>
                     <div className='flex flex-col md:flex-row gap-2'>
                         {document.data.link_tokopedia.url && <Button linkField={document.data.link_tokopedia} label="Via Tokopedia!" />}

@@ -45,8 +45,8 @@
           }
         }
       },
-      "price": {
-        "type": "Text",
+      "price_new": {
+        "type": "Number",
         "config": {
           "label": "Price",
           "placeholder": ""
