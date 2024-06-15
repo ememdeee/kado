@@ -23,7 +23,18 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "product_links": {
+          "type": "Link",
+          "config": {
+            "label": "Product Links",
+            "select": "document",
+            "customtypes": [
+              "product"
+            ]
+          }
+        }
+      }
     }
   ]
 }

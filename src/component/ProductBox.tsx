@@ -19,7 +19,7 @@ const ProductBox: React.FC<ProductBoxProps> = ({ product, index }) => {
       href={`/${product.uid || '#'}`}
       passHref
       key={product.id}
-      className="max-w-60 w-full zoomOut"
+      className="max-w-60 w-full zoomOut not-prose"
       style={{ animationDelay: `${index * 0.2}s` }}
     >
       <div className="h-full flex flex-col bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">

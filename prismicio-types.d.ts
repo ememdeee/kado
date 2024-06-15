@@ -925,6 +925,21 @@ export interface ProductsSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *ProductEmbed → Items*
+ */
+export interface ProductsSliceDefaultItem {
+  /**
+   * Product Links field in *ProductEmbed → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: products.items[].product_links
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product_links: prismic.ContentRelationshipField<"product">;
+}
+
+/**
  * Default variation for ProductEmbed Slice
  *
  * - **API ID**: `default`
@@ -934,7 +949,7 @@ export interface ProductsSliceDefaultPrimary {
 export type ProductsSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<ProductsSliceDefaultPrimary>,
-  never
+  Simplify<ProductsSliceDefaultItem>
 >;
 
 /**
@@ -1048,6 +1063,7 @@ declare module "@prismicio/client" {
       ImageBlockSliceDefault,
       ProductsSlice,
       ProductsSliceDefaultPrimary,
+      ProductsSliceDefaultItem,
       ProductsSliceVariation,
       ProductsSliceDefault,
       TextBlockSlice,
