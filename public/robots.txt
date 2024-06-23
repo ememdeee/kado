@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isikado.com/sitemap.xml

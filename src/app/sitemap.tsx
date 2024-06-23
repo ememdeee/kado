@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Add main domain or home page
   sitemapEntries.push({
-    url: `https://isikado.com/`,
+    url: `https://isikado.com`,
     lastModified: new Date(),
     changeFrequency: 'daily',
     // priority: 1,

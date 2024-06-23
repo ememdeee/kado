@@ -26,7 +26,7 @@ const PopupText: React.FC<PopupTextProps> = ({ message, show, duration = 3000 })
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-yellow-300 text-base font-bold text-slate-900 p-3 rounded-md border-2 border-slate-900 shadow-lg z-10">
+    <div className="animate-fadeInOut-quick fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-yellow-300 text-base font-bold text-slate-900 p-3 rounded-md border-2 border-slate-900 shadow-lg z-10">
       {message}
     </div>
   );

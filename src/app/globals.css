@@ -67,3 +67,29 @@ section ul {
   0% { opacity:0; }
   100% { opacity:1; }
 }
+
+@keyframes fadeInQ {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutQ {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.animate-fadeInOut-quick {
+  animation: fadeInQ 0.2s ease-out forwards, fadeOutQ 0.3s ease-in 2.7s forwards;
+}
