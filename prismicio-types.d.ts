@@ -78,6 +78,17 @@ interface BlogDocumentData {
   meta_image: prismic.ImageField<never>;
 
   /**
+   * Canonical field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.canonical
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  canonical: prismic.KeyTextField;
+
+  /**
    * Index field in *Blog*
    *
    * - **Field Type**: Select
@@ -149,6 +160,29 @@ interface HomepageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
+
+  /**
+   * Canonical field in *Homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.canonical
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  canonical: prismic.KeyTextField;
+
+  /**
+   * Index field in *Homepage*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Index
+   * - **API ID Path**: homepage.index
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  index: prismic.SelectField<"Index" | "No Index", "filled">;
 }
 
 /**
@@ -217,6 +251,17 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
+
+  /**
+   * Canonical field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.canonical
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  canonical: prismic.KeyTextField;
 
   /**
    * Index field in *Page*

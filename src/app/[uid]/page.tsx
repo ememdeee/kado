@@ -54,12 +54,20 @@ export async function generateMetadata({
 
   const { document } = result;
 
+  let robotsContent;
+  if (document.data.index === "No Index") {
+    robotsContent = "noindex";
+  } else {
+    robotsContent = "index";
+  }
+
   return {
     title: document.data.meta_title,
     description: document.data.meta_description,
     alternates: {
-      canonical: document.data.canonical ? document.data.canonical: '/'+params.uid,
+      canonical: document.data.canonical ? document.data.canonical: 'https://isikado.com/'+params.uid,
     },
+    robots: robotsContent,
   };
 }
 

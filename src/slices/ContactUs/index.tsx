@@ -20,7 +20,7 @@ const ContactUs = ({ slice }: ContactUsProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <div className="grid gap-x-8 gap-y-6 md:grid-cols-[2fr,1fr]">
-        <Heading className="col-start-1">
+        <Heading className="col-start-1 mb-4" size="md">
           {slice.primary.heading}
         </Heading>
 

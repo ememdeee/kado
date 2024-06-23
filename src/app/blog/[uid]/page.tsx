@@ -24,9 +24,19 @@ export async function generateMetadata({
     .getByUID("blog", params.uid)
     .catch(() => notFound());
 
+  let robotsContent;
+  if (page.data.index === "No Index") {
+    robotsContent = "noindex";
+  } else {
+    robotsContent = "index";
+  }
   return {
     title: page.data.meta_title,
     description: page.data.meta_description,
+    alternates: {
+      canonical: page.data.canonical ? page.data.canonical: 'https://isikado.com/blog/'+params.uid,
+    },
+    robots: robotsContent,
   };
 }
 

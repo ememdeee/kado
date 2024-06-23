@@ -70,6 +70,13 @@
         },
         "type": "Image"
       },
+      "canonical": {
+        "type": "Text",
+        "config": {
+          "label": "Canonical",
+          "placeholder": ""
+        }
+      },
       "index": {
         "type": "Select",
         "config": {

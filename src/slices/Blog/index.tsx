@@ -21,7 +21,7 @@ const ContentIndex = async ({ slice }: ContentIndexProps): Promise <JSX.Element>
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Heading className="mb-8">
+      <Heading className="mb-4" size="md">
         {slice.primary.heading}
       </Heading>
       <div className="prose-xl prose-invert mb-10">

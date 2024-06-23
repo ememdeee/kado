@@ -22,7 +22,7 @@ const GalleryIndex = async ({ slice }: GalleryIndexProps): Promise <JSX.Element>
       <Bounded
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}>
-          <Heading>{slice.primary.heading}</Heading>
+          <Heading className="mb-4" size="md">{slice.primary.heading}</Heading>
           <PrismicRichText field={slice.primary.description} />
           <ProductList products={products as Content.ProductDocument[]} className="mt-4" />
       </Bounded>

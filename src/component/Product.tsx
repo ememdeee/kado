@@ -8,6 +8,15 @@ import Button from './Button';
 import { MdArrowForward, MdArrowBack } from "react-icons/md";
 import FormatPrice from './FormatPrice';
 
+import { MdSend } from "react-icons/md";
+import { MdLink } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
+import { MdForward } from "react-icons/md";
+import { MdAddShoppingCart } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
+import TextHoverable from './TextHoverable';
+import PopupText from './PopupText';
+
 type ImageField = {
     image: any; // Replace 'any' with the appropriate type for the image field
 };
@@ -35,6 +44,7 @@ const Product: React.FC<ProductProps> = ({ document }) => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
 
     // State to control the read more functionality
     const [showFullDescription, setShowFullDescription] = useState(false);
@@ -90,6 +100,13 @@ const Product: React.FC<ProductProps> = ({ document }) => {
         setShowFullDescription(!showFullDescription);
     };
 
+    const handlePopupTextClick = () => {
+        // Trigger the popup to show and reset it
+        setShowPopup(false);  // Reset the state
+        setTimeout(() => setShowPopup(true), 0); // Set it to true in the next tick to ensure the state change is noticed
+        navigator.clipboard.writeText(window.location.href);
+      };
+
     return (
         <Bounded>
             <div className='flex flex-col justify-between lg:flex-row gap-10 lg:items-start mb-4 md:gap-16'>
@@ -136,13 +153,16 @@ const Product: React.FC<ProductProps> = ({ document }) => {
                         <span className='text-yellow-400 font-bold block mb-2'>Start From</span>
                         <span className='text-3xl font-bold block'><FormatPrice value={document.data.price_new} /></span>
                     </div>
-                    <div className='flex flex-col md:flex-row gap-2'>
+                    <div className='flex flex-col md:items-center md:flex-row gap-2'>
                         {document.data.link_tokopedia.url && <Button linkField={document.data.link_tokopedia} label="Via Tokopedia!" />}
                         {document.data.link_shopee.url && <Button linkField={document.data.link_shopee} label="Via Shopee!" />}
+                        {/* <span onClick={handlePopupTextClick}><TextHoverable className='px-4 py-2 cursor-pointer'>Minta Beli-in! <MdLink /></TextHoverable></span> */}
+                        <span onClick={handlePopupTextClick} className='cursor-pointer underline text-base font-bold text-slate-900 flex gap-1 items-center'>Minta Beli-in! <MdLink /></span>
                     </div>
                 </div>
             </div>
             <PrismicRichText field={document.data.detail} />
+            <PopupText message="Link Copied" show={showPopup} />
         </Bounded>
     );
 };
