@@ -11,18 +11,7 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {
-        "product_link": {
-          "type": "Link",
-          "config": {
-            "label": "Product Link",
-            "select": "document",
-            "customtypes": [
-              "product"
-            ]
-          }
-        }
-      },
+      "primary": {},
       "items": {
         "product_links": {
           "type": "Link",

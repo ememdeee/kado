@@ -93,3 +93,8 @@ section ul {
 .animate-fadeInOut-quick {
   animation: fadeInQ 0.2s ease-out forwards, fadeOutQ 0.3s ease-in 2.7s forwards;
 }
+
+/* for text block heading */
+.textBlock h1, .textBlock h2, .textBlock h3, .textBlock h4, .textBlock h5, .textBlock h6{
+  font-weight: 700;
+}
