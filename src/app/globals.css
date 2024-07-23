@@ -98,3 +98,8 @@ section ul {
 .textBlock h1, .textBlock h2, .textBlock h3, .textBlock h4, .textBlock h5, .textBlock h6{
   font-weight: 700;
 }
+.textBlock a{
+  font-weight: 700;
+  color: #007BFF;
+  text-decoration: underline;
+}
