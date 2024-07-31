@@ -2,8 +2,7 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/component/Bounded";
 import Heading from "@/component/Heading";
-import Form from "@/component/Form";
-import Popup from "@/component/Popup";
+import KadoPopupSearch from "@/component/KadoPopupSearch";
 
 /**
  * Props for `Hero`.
@@ -25,7 +24,8 @@ const Hero = async ({ slice }: HeroProps): Promise <JSX.Element> => {
         <Heading className="mb-4 text-center">
           IsiKado
         </Heading>
-        <Popup />
+        <KadoPopupSearch />
+        {/* Main Form */}
         {/* <Form className="mt-6 mb-6"/> */}
       </div>
       </Bounded>

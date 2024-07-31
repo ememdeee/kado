@@ -8,6 +8,7 @@ import { MdMenu, MdClose } from "react-icons/md";
 import Button from "./Button";
 import { usePathname } from "next/navigation";
 import "@/app/globals.css";
+import KadoPopupButton from './KadoPopupButton';
 
 export default function NavBar({
   settings,
@@ -22,11 +23,19 @@ export default function NavBar({
     <nav aria-label="Main navigation">
       <ul className="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m-4 md:mt-0 md:flex-row md:items-center md:rounded-xl">
         <div className="flex items-center justify-between">
-          <NameLogo name={settings.data.name} />
+          <li className='md:hidden z-10'>
+            <KadoPopupButton label="Cari" showIcon = {false} />
+          </li>
+          <div className="flex-grow flex-shrink-0 text-center absolute left-0 right-0 mx-auto z-0 md:hidden">
+            <NameLogo name={settings.data.name} />
+          </div>
+          <div className="hidden md:block">
+            <NameLogo name={settings.data.name} />
+          </div>
           <button
             aria-expanded={open}
             aria-label="Open menu"
-            className="block p-2 text-2xl text-slate-800 md:hidden"
+            className="block p-2 text-2xl text-slate-800 z-10 md:hidden"
             onClick={() => setOpen(true)}
           >
             <MdMenu />
@@ -77,13 +86,6 @@ export default function NavBar({
             </React.Fragment>
           ))}
           
-          {/* <li>
-            <Button
-              linkField={settings.data.cta_link}
-              label={settings.data.cta_label}
-              className="ml-3"
-            />
-          </li> */}
         </div>
         <DesktopMenu settings={settings} pathname={pathname} />
       </ul>
@@ -148,11 +150,7 @@ function DesktopMenu({
         </React.Fragment>
       ))}
       <li>
-        <Button
-          linkField={settings.data.cta_link}
-          label={settings.data.cta_label}
-          className="ml-3"
-          />
+        <KadoPopupButton label={settings.data.cta_label} className="ml-3" />
       </li>
     </div>
   );
