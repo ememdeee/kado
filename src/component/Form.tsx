@@ -71,7 +71,7 @@ const Form: React.FC<FormProps> = ({ className, isVisible, togglePopup }) => {
                 <div className='shadow rounded-md overflow-hidden'>
                   <label htmlFor="kelamin" className="hidden text-md font-medium text-gray-700">Kelamin</label>
                   <select id="kelamin" name="kelamin" value={formData.kelamin} onChange={handleChange} className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white focus:outline-none focus:border-blue-600">
-                    <option value="">Pilih Kelamin</option>
+                    <option value="">Buat Siapa</option>
                     <option value="Laki-laki">Laki-laki</option>
                     <option value="Perempuan">Perempuan</option>
                   </select>
@@ -79,7 +79,7 @@ const Form: React.FC<FormProps> = ({ className, isVisible, togglePopup }) => {
                 <div className='shadow rounded-md overflow-hidden'>
                   <label htmlFor="umur" className="hidden text-md font-medium text-gray-700">Umur</label>
                   <select id="umur" name="umur" value={formData.umur} onChange={handleChange} className="w-full rounded-md focus:ring-indigo-500 text-md h-12 py-2 flex flex-row justify-between px-2 text-gray-700 bg-white border-2 border-white focus:outline-none focus:border-blue-600">
-                    <option value="">Pilih Umur</option>
+                    <option value="">Usia Penerima</option>
                     <option value="New_Born">New Born</option>
                     <option value="1-5_Tahun">1-5 Tahun</option>
                     <option value="6-9_Tahun">6-9 Tahun</option>
@@ -115,7 +115,7 @@ const Form: React.FC<FormProps> = ({ className, isVisible, togglePopup }) => {
               </div>
               <div className="mt-4">
                 <button onClick={togglePopup} type="submit" className="w-full">
-                  <TextHoverable label="Submit" className='w-full' />
+                  <TextHoverable label="Cari Kado" className='w-full' />
                 </button>
               </div>
             </form>

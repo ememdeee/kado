@@ -49,7 +49,7 @@ export default function ProductList({ products, className }: ProductListProps) {
             product.data.price_new <= maxPrice)
           )
           .map((product, index) => (
-            <ProductBox product={product} index={index} key={product.id} />
+            <ProductBox as="h2" product={product} index={index} key={product.id} />
           ))}
       </div>
     </div>

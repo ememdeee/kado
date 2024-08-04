@@ -9,11 +9,12 @@ import FormatPrice from "@/component/FormatPrice";
 import { Content } from "@prismicio/client";  // Assuming Content.ProductDocument comes from @prismicio/client
 
 type ProductBoxProps = {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | 'span';
   product: Content.ProductDocument;
   index: number;
 };
 
-const ProductBox: React.FC<ProductBoxProps> = ({ product, index }) => {
+const ProductBox: React.FC<ProductBoxProps> = ({ product, index, as = "h2" }) => {
   return (
     <Link
       href={`/${product.uid || '#'}`}
@@ -30,7 +31,7 @@ const ProductBox: React.FC<ProductBoxProps> = ({ product, index }) => {
           />
         )}
         <div className="px-2 md:px-4 py-3 flex flex-col h-full">
-          <Heading as="h2" size="ssss" className="mb-auto heading-limit-2-lines">
+          <Heading as={as} size="ssss" className="mb-auto heading-limit-2-lines">
             {product.data.title}
           </Heading>
           <span className="mt-2 text-lg md:text-xl font-bold">

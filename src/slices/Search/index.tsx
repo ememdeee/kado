@@ -4,6 +4,7 @@ import { createClient } from "@/prismicio";
 import ProductList from "./ProductList";
 import Bounded from "@/component/Bounded";
 import Heading from "@/component/Heading";
+import KadoPopupSearch from "@/component/KadoPopupSearch";
 
 /**
  * Props for `GalleryIndex`.
@@ -22,9 +23,19 @@ const GalleryIndex = async ({ slice }: GalleryIndexProps): Promise <JSX.Element>
       <Bounded
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}>
-          <Heading className="mb-4" size="md">{slice.primary.heading}</Heading>
-          <PrismicRichText field={slice.primary.description} />
-          <ProductList products={products as Content.ProductDocument[]} className="mt-4" />
+          {products.length > 0 ? (
+            <>            
+            <Heading className="mb-4" size="md">{slice.primary.heading}</Heading>
+            <PrismicRichText field={slice.primary.description} />
+            <ProductList products={products as Content.ProductDocument[]} className="mt-4" />
+            </>
+          ) : (
+            <>
+              <Heading className="mb-4" size="md">{slice.primary.heading_empty}</Heading>
+              <PrismicRichText field={slice.primary.description_empty} />
+              <KadoPopupSearch />
+            </>
+          )}
       </Bounded>
     </>
   );

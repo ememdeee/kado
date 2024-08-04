@@ -825,6 +825,26 @@ export interface GalleryIndexSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
+
+  /**
+   * Heading Empty field in *Search → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_index.default.primary.heading_empty
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_empty: prismic.KeyTextField;
+
+  /**
+   * Description Empty field in *Search → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_index.default.primary.description_empty
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_empty: prismic.RichTextField;
 }
 
 /**

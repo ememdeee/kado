@@ -55,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   blogs.forEach((blog) => {
     if (blog.data.index !== "No Index") {
       sitemapEntries.push({
-        url: `https://isikado.com/${blog.uid}`,
+        url: `https://isikado.com/blog/${blog.uid}`,
         lastModified: new Date(blog.last_publication_date),
         changeFrequency: 'daily',
         // priority: 1,

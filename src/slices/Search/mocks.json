@@ -18,6 +18,22 @@
 						}
 					}
 				]
+			},
+			"description_empty": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing qui ad aute officia eu ex sunt anim sunt occaecat et ad deserunt culpa. Magna laborum cupidatat non consequat commodo quis irure nisi pariatur et excepteur veniam sunt consectetur nostrud. Minim ea magna proident cupidatat occaecat elit anim proident in."
+						}
+					}
+				]
+			},
+			"heading_empty": {
+				"__TYPE__": "FieldContent",
+				"value": "nails",
+				"type": "Text"
 			}
 		},
 		"items": []
