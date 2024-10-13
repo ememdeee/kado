@@ -1,6 +1,5 @@
 // ImageContainer.tsx
-import { PrismicNextImage, PrismicNextImageProps } from '@prismicio/next';
-import { ImageField } from '@prismicio/types';
+import { PrismicNextImage } from '@prismicio/next';
 import React from 'react';
 import clsx from 'clsx';
 

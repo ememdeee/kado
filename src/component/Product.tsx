@@ -109,7 +109,7 @@ const Product: React.FC<ProductProps> = ({ document }) => {
 
     return (
         <Bounded>
-            <div className='flex flex-col justify-between lg:flex-row gap-10 lg:items-start mb-4 md:gap-16'>
+            <div className='flex flex-col justify-between rounded-2xl border-2 border-slate-800 bg-slate-50 px-4 py-10 md:px-8 md:py-20 lg:flex-row gap-10 lg:items-start mb-4 md:gap-16'>
                 <div className='flex flex-col gap-6 lg:w-1/3 lg:top-20 lg:sticky'>
                     <PrismicNextImage field={activeImg} className='w-full h-full aspect-square object-cover rounded-xl' />
                     <div className='relative'>
