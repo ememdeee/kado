@@ -22,9 +22,9 @@ export default function AnimatedHeading({ children }: AnimatedHeadingProps) {
 
   return (
     <div className="flex items-start justify-center">
-      <h1 className="text-6xl font-bold animate-fade-in-up min-h-[1.2em]">
+      <span className="text-6xl font-bold animate-fade-in-up min-h-[1.2em]">
         {text}
-      </h1>
+      </span>
       <div className="animate-blink flex-shrink-0 pt-2 pl-2">
         <FaGift className="w-6 h-6" />
       </div>

@@ -64,7 +64,7 @@ const Form: React.FC<FormProps> = ({ className, isVisible, togglePopup }) => {
     <div className={`z-20 fixed inset-0 flex items-end justify-center px-4 bg-black bg-opacity-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className={`bg-white rounded-t-lg shadow-lg transform transition-transform duration-300 z-10 ${isVisible ? 'translate-y-0' : 'translate-y-full'} w-full max-w-5xl mx-auto p-4 py-8`}>
         <div className="flex flex-col justify-between items-center">
-          <h2 className="text-xl font-semibold mb-4">Fill the Form</h2>
+          <span className="text-xl font-semibold mb-4">Mulai Cari Kado</span>
           <div className="flex justify-center items-center w-full max-w-screen-lg">
             <form onSubmit={handleSubmit} className={clsx("w-full space-y-4", className)}>
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">

@@ -132,3 +132,11 @@ section ul {
 .animate-blink {
   animation: blink 1s infinite;
 }
+
+.textBlock iframe {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

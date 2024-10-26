@@ -22,7 +22,7 @@ const Hero = async ({ slice }: HeroProps): Promise <JSX.Element> => {
           className="!py-0 lg:py-0 md:py-0 sm:py-0 -mt-20"
       >
       <div className="min-h-screen flex flex-col justify-center">
-        <Heading className="mb-4 text-center">
+        <Heading as="span" className="mb-4 text-center">
           <AnimatedHeading>IsiKado</AnimatedHeading>
         </Heading>
         <KadoPopupSearch />

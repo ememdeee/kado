@@ -18,7 +18,7 @@ const KadoPopupSearch = () => {
             onClick={togglePopup}
             >
                 <MdSearch className="text-gray-500 text-xl md:text-2xl" />
-                <p className="text-gray-500 text-base md:text-lg">Search...</p>
+                <p className="text-gray-500 text-base md:text-lg">Cari Kado...</p>
             </div>
             <Form isVisible={isVisible} togglePopup={togglePopup} />
         </div>
